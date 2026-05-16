@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap");
-
 :root {
   --bg-main: #101512;
   --bg-section: #151c18;
@@ -25,7 +23,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Manrope", sans-serif;
+  font-family: Inter, Manrope, Arial, sans-serif;
   color: var(--text-main);
   background:
     radial-gradient(circle at top left, rgba(82, 111, 85, 0.18), transparent 28%),
@@ -292,7 +290,7 @@ p { margin: 0; }
   background: var(--accent);
   box-shadow: 0 0 0 4px rgba(181, 138, 85, 0.12);
 }
-.prefooter-cover { background-image: url("https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
+.prefooter-cover { background-image: url("../images/local/pexels-1732414.jpg"); }
 .prefooter-cover__content { padding: 82px 0; max-width: 700px; }
 .site-footer {
   background: #0b100d;
@@ -339,12 +337,12 @@ textarea { min-height: 140px; resize: vertical; }
   background: rgba(181, 138, 85, 0.08);
   color: #dec7a4;
 }
-.hero-home { background-image: url("https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
-.hero-apartments { background-image: url("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
-.hero-houses { background-image: url("https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
-.hero-lands { background-image: url("https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
-.hero-newbuilds { background-image: url("https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
-.hero-contacts { background-image: url("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1800"); }
+.hero-home { background-image: url("../images/local/pexels-2102587.jpg"); }
+.hero-apartments { background-image: url("../images/local/pexels-323780.jpg"); }
+.hero-houses { background-image: url("../images/local/pexels-1396132.jpg"); }
+.hero-lands { background-image: url("../images/local/pexels-280222.jpg"); }
+.hero-newbuilds { background-image: url("../images/local/pexels-276724.jpg"); }
+.hero-contacts { background-image: url("../images/local/pexels-302769.jpg"); }
 @media (max-width: 1080px) {
   .feature-grid,
   .steps,
@@ -384,4 +382,71 @@ textarea { min-height: 140px; resize: vertical; }
   .panel,
   .contact-card,
   .metric-card { padding: 18px; }
+}/* Demo property cards */
+.demo-property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
+.demo-property-card {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(145deg, rgba(26, 34, 44, 0.96), rgba(16, 22, 31, 0.98));
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+}
+.demo-property-card__media {
+  min-height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.demo-property-card__body { padding: 18px; display: grid; gap: 10px; }
+.demo-property-card__type {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #e4c596;
+}
+.demo-property-card__title { margin: 0; font-size: 22px; line-height: 1.15; }
+.demo-property-card__description { margin: 0; color: var(--text-soft); }
+.demo-property-card__price { font-size: 28px; font-weight: 800; color: #f2d7ad; }
+.demo-property-card__features { display: flex; flex-wrap: wrap; gap: 8px; }
+.demo-property-card__features span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+.demo-property-card__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.demo-property-card__btn {
+  min-height: 44px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid transparent;
+}
+.demo-property-card__btn--primary {
+  background: linear-gradient(135deg, var(--accent), #7d5b37);
+  color: #fff7ea;
+}
+.demo-property-card__btn--phone {
+  background: rgba(255,255,255,.03);
+  border-color: rgba(255,255,255,.22);
+  color: #fff;
+}
+@media (max-width: 1080px) {
+  .demo-property-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .demo-property-grid { grid-template-columns: 1fr; }
+}
+.demo-property-card__img{min-height:200px;background-size:cover;background-position:center;display:flex;align-items:flex-start;justify-content:flex-start;padding:14px;border-radius:12px}
+.demo-property-card__badge{display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid rgba(181,138,85,.24);background:rgba(181,138,85,.1);color:#dfc49e;font-size:12px;font-weight:700}
