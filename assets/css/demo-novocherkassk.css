@@ -101,10 +101,13 @@ p { margin: 0; }
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
 }
+.site-header .container {
+  width: min(1260px, calc(100% - 40px));
+}
 .site-header__row {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
   align-items: center;
-  justify-content: space-between;
   gap: 18px;
   padding: 16px 0;
 }
@@ -118,8 +121,10 @@ p { margin: 0; }
 .site-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 .nav-toggle {
   display: none;
@@ -184,6 +189,14 @@ p { margin: 0; }
   border: 1px solid rgba(255,255,255,0.12);
   white-space: nowrap;
 }
+@media (min-width: 769px) {
+  .logo { font-size: 31px; }
+  .site-nav a,
+  .header-phone {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+}
 .hero-cover,
 .prefooter-cover {
   position: relative;
@@ -212,13 +225,22 @@ p { margin: 0; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-  align-items: end;
-  gap: 30px;
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
   width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
   padding: 126px 0 80px;
 }
-.hero-home__copy { padding: 0; max-width: 760px; }
+.hero-home__copy { padding: 0; max-width: 640px; }
+.hero-home__copy h1 {
+  max-width: 10ch;
+  font-size: clamp(48px, 5.4vw, 70px);
+}
+.hero-home__copy .lead {
+  max-width: 58ch;
+}
 .hero-home__panel {
   padding: 26px;
   border-radius: var(--radius-lg);
@@ -226,6 +248,8 @@ p { margin: 0; }
   background: linear-gradient(180deg, rgba(241, 231, 214, 0.96), rgba(223, 209, 187, 0.96));
   box-shadow: 0 26px 60px rgba(6, 10, 8, 0.28);
   color: #1c241f;
+  max-width: 460px;
+  justify-self: start;
 }
 .hero-home__panel h2 {
   margin-bottom: 12px;
@@ -552,6 +576,19 @@ textarea { min-height: 140px; resize: vertical; }
 .hero-newbuilds { background-image: url("../images/local/pexels-276724.jpg"); }
 .hero-contacts { background-image: url("../images/local/pexels-302769.jpg"); }
 .hero-team { background-image: url("../images/local/pexels-1918291.jpg"); }
+@media (max-width: 1320px) and (min-width: 769px) {
+  .site-header__row {
+    gap: 14px;
+  }
+  .site-nav {
+    gap: 8px;
+  }
+  .site-nav a,
+  .header-phone {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
 @media (max-width: 1080px) {
   .feature-grid,
   .steps,
