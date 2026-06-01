@@ -225,21 +225,23 @@ p { margin: 0; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
-  align-items: center;
-  gap: clamp(24px, 4vw, 56px);
+  grid-template-columns: minmax(0, 1.18fr) minmax(360px, 420px);
+  align-items: start;
+  gap: clamp(40px, 4.8vw, 64px);
   width: 100%;
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 126px 0 80px;
 }
-.hero-home__copy { padding: 0; max-width: 640px; }
+.hero-home__copy { padding: 0; max-width: 720px; }
 .hero-home__copy h1 {
-  max-width: 10ch;
-  font-size: clamp(48px, 5.4vw, 70px);
+  max-width: 640px;
+  font-size: clamp(42px, 4vw, 58px);
+  line-height: 1;
+  text-wrap: balance;
 }
 .hero-home__copy .lead {
-  max-width: 58ch;
+  max-width: 54ch;
 }
 .hero-home__panel {
   padding: 26px;
@@ -248,8 +250,10 @@ p { margin: 0; }
   background: linear-gradient(180deg, rgba(241, 231, 214, 0.96), rgba(223, 209, 187, 0.96));
   box-shadow: 0 26px 60px rgba(6, 10, 8, 0.28);
   color: #1c241f;
-  max-width: 460px;
-  justify-self: start;
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+  margin-top: 16px;
 }
 .hero-home__panel h2 {
   margin-bottom: 12px;
@@ -597,7 +601,19 @@ textarea { min-height: 140px; resize: vertical; }
   .listing-grid,
   .faq,
   .info-grid { grid-template-columns: 1fr; }
-  .hero-home__layout { grid-template-columns: 1fr; }
+  .hero-home__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+    gap: 30px;
+  }
+  .hero-home__copy { max-width: 620px; }
+  .hero-home__copy h1 {
+    max-width: 560px;
+    font-size: clamp(38px, 4.3vw, 50px);
+  }
+  .hero-home__panel {
+    max-width: 380px;
+    margin-top: 8px;
+  }
 }
 @media (max-width: 768px) {
   .container { width: min(100% - 28px, 1180px); }
@@ -643,7 +659,23 @@ textarea { min-height: 140px; resize: vertical; }
   }
   .hero-cover { min-height: 62vh; }
   .hero-cover__content { padding: 104px 0 62px; }
-  .hero-home__layout { padding: 104px 0 62px; }
+  .hero-home__layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: none;
+    padding: 104px 0 62px;
+  }
+  .hero-home__copy,
+  .hero-home__panel { max-width: none; }
+  .hero-home__copy h1 {
+    max-width: 11ch;
+    font-size: clamp(42px, 10vw, 56px);
+    text-wrap: initial;
+  }
+  .hero-home__panel {
+    justify-self: stretch;
+    margin-top: 0;
+  }
   .feature-grid,
   .listing-grid,
   .steps,
