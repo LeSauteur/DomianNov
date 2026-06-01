@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lesauteur.github.io/DomianNov/sitemap.xml
