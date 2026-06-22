@@ -1729,8 +1729,9 @@ button:disabled { opacity: .72; cursor: not-allowed; }
 @media (max-width: 768px) {
   .home-hero {
     background:
-      linear-gradient(180deg, rgba(7,12,9,.42) 0%, rgba(7,12,9,.88) 48%, #0d120f 100%),
-      url("../images/team/XXXL (3).webp") center 48% / cover no-repeat;
+      linear-gradient(180deg, rgba(7,12,9,.48) 0%, rgba(7,12,9,.84) 42%, #0d120f 100%),
+      linear-gradient(90deg, rgba(7,12,9,.88) 0%, rgba(7,12,9,.52) 62%, rgba(7,12,9,.24) 100%),
+      url("../images/Of/01-big.jpg") center 52% / cover no-repeat;
   }
   .home-hero__layout { padding-top: 72px; }
   .home-hero__title-line { display: inline; }
