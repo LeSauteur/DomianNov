@@ -1876,6 +1876,7 @@ button:disabled { opacity: .72; cursor: not-allowed; }
 .district-section--light h2,
 .district-section--light h3 { color: #182019; }
 .district-section--light p { color: #50584f; }
+.district-section--light .district-heading > p { color: #4a524a; }
 .district-heading { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 44px; align-items: end; margin-bottom: 32px; }
 .district-heading h2 { max-width: 760px; font-size: clamp(40px, 4vw, 58px); line-height: 1; }
 .district-heading > p { color: var(--text-soft); font-size: 17px; }
