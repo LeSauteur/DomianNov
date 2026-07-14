@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Домиан Новочеркасск — недвижимость в Новочеркасске и Ростовской области</title>
   <meta name="description" content="Домиан Новочеркасск: квартиры, дома, участки, новостройки Ростовской области, коммерческая недвижимость, аренда и сопровождение сделок.">
+  <meta name="theme-color" content="#10251d">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Домиан Новочеркасск — недвижимость под вашу задачу">
+  <meta property="og:description" content="Подбор, проверка и сопровождение сделок с недвижимостью в Новочеркасске и Ростовской области.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/demo-novocherkassk.css">
 </head>
 <body>
@@ -17,138 +23,120 @@
     </div>
   </header>
   <main class="home-page">
-    <section class="home-hero">
-      <div class="container home-page-container home-hero__layout">
-        <div class="home-hero__copy">
-          <p class="home-kicker">Недвижимость · Новочеркасск</p>
-          <h1><span class="home-hero__title-line">Недвижимость в&nbsp;Новочеркасске</span> <span class="home-hero__title-line">с&nbsp;понятным маршрутом сделки</span></h1>
-          <p class="home-hero__lead">Покупка, продажа, новостройки, дома, участки и коммерция — без случайного выбора, с понятным маршрутом сделки.</p>
-          <div class="home-hero__actions">
-            <a class="btn" href="tel:+79381549515">Обсудить задачу</a>
-            <a class="btn btn--ghost" href="districts/index.html">Смотреть направления</a>
+    <section class="sales-hero" aria-labelledby="sales-hero-title">
+      <div class="container home-page-container sales-hero__layout">
+        <div class="sales-hero__copy">
+          <p class="sales-hero__eyebrow">Домиан · Новочеркасск</p>
+          <h1 id="sales-hero-title">Недвижимость под вашу задачу</h1>
+          <p class="sales-hero__lead">Подбираем квартиры, дома, участки и коммерческие объекты в Новочеркасске. Проверяем важное и сопровождаем до понятного результата.</p>
+          <div class="sales-hero__actions">
+            <a class="btn" href="#home-start">Подобрать объект</a>
+            <a class="btn btn--outline-dark" href="services.html">Продать объект</a>
           </div>
-          <p class="home-hero__scope">Сначала разбираемся в вашей ситуации. Затем определяем маршрут, документы и следующий шаг.</p>
-          <ul class="home-hero__facts" aria-label="Основные направления работы">
-            <li><strong>Новочеркасск</strong><span>и ближайшие направления</span></li>
-            <li><strong>Жилая и коммерческая</strong><span>недвижимость под задачу</span></li>
-            <li><strong>Личный контроль</strong><span>ключевых решений</span></li>
-          </ul>
-          <div class="home-hero__office-line">
-            <strong>Офис в Новочеркасске</strong>
-            <span>Народная ул., 1, офис 114</span>
+          <div class="sales-hero__service-line" aria-label="Этапы работы">
+            <span>Подбор</span>
+            <span>Проверка</span>
+            <span>Сопровождение</span>
           </div>
+          <p class="sales-hero__office">Офис: Народная ул., 1, офис 114 · <a href="tel:+79381549515">+7 938 154-95-15</a></p>
         </div>
-        <aside class="home-hero__owner" aria-label="Собственник офиса Домиан Новочеркасск">
-          <figure class="home-hero__portrait">
-            <img src="assets/images/team/zelenkov.png" alt="Зеленьков Александр Михайлович, собственник офиса Домиан Новочеркасск">
-            <figcaption>Портрет собственника офиса на сайте показан без обрезки лица и головы.</figcaption>
+
+        <div class="sales-hero__visual" aria-label="Направления недвижимости">
+          <figure class="sales-hero__frame sales-hero__frame--main">
+            <img src="assets/images/stock/stock-apartment-interior.jpg" alt="Современный интерьер квартиры" width="1800" height="1532" fetchpriority="high">
+            <figcaption><strong>Подборка под задачу</strong><span>Квартира · дом · участок</span></figcaption>
           </figure>
-          <div class="home-hero__owner-copy">
-            <p class="home-hero__role">Собственник офиса</p>
-            <h2>Зеленьков Александр Михайлович</h2>
-            <p>Личное участие в ключевых решениях и контроль качества сопровождения.</p>
-            <p class="home-hero__owner-address">Офис принимает клиентов в Новочеркасске: Народная ул., 1, офис 114.</p>
-            <a class="home-text-link" href="#owner">О подходе собственника <span aria-hidden="true">→</span></a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="home-scenarios" aria-labelledby="scenario-title">
-      <div class="container home-page-container home-scenarios__layout">
-        <div class="home-scenarios__heading">
-          <p class="home-section-index">Быстрый выбор</p>
-          <h2 id="scenario-title">С чего начнём?</h2>
-          <p>Выберите ближайшую задачу — это не фильтр объектов, а короткий путь к нужному разделу.</p>
+          <figure class="sales-hero__frame sales-hero__frame--house">
+            <img src="assets/images/stock/stock-house-premium.jpg" alt="Современный частный дом" width="1800" height="1201" loading="lazy">
+            <figcaption>Частный сектор и дома</figcaption>
+          </figure>
+          <div class="sales-hero__monogram" aria-hidden="true"><span>ДН</span><small>локальная экспертиза</small></div>
         </div>
-        <nav class="home-scenarios__grid" aria-label="Сценарии работы с недвижимостью">
-          <a href="apartments.html"><span>01</span>Купить квартиру</a>
-          <a href="services.html"><span>02</span>Продать объект</a>
-          <a href="newbuilds.html"><span>03</span>Выбрать новостройку</a>
-          <a href="houses.html"><span>04</span>Найти дом</a>
-          <a href="lands.html"><span>05</span>Подобрать участок</a>
-          <a href="commercial.html"><span>06</span>Обсудить коммерцию</a>
-        </nav>
       </div>
     </section>
 
-    <section class="section home-directions" id="directions">
+    <nav class="quick-categories" aria-label="Быстрые категории недвижимости">
+      <div class="container home-page-container quick-categories__grid">
+        <a href="apartments.html"><span>01</span><strong>Квартиры</strong><small>Городской рынок</small></a>
+        <a href="houses.html"><span>02</span><strong>Дома</strong><small>Для жизни и переезда</small></a>
+        <a href="lands.html"><span>03</span><strong>Участки</strong><small>Земля и строительство</small></a>
+        <a href="newbuilds.html"><span>04</span><strong>Новостройки</strong><small>Проекты и условия</small></a>
+        <a href="commercial.html"><span>05</span><strong>Коммерция</strong><small>Под задачу бизнеса</small></a>
+        <a href="rent.html"><span>06</span><strong>Аренда</strong><small>Жилая и коммерческая</small></a>
+      </div>
+    </nav>
+
+    <section class="section home-start" id="home-start" aria-labelledby="home-start-title">
       <div class="container home-page-container">
-        <div class="home-section-heading">
+        <div class="home-start__heading">
           <div>
-            <p class="home-section-index">01 / Направления</p>
-            <h2>Выберите задачу — дальше разберёмся вместе</h2>
+            <p class="home-section-index">01 / Объекты и задачи</p>
+            <h2 id="home-start-title">Выберите свой сценарий</h2>
           </div>
-          <p>Шесть самостоятельных сценариев вместо общей ленты случайных предложений.</p>
+          <div>
+            <p>Выберите близкий сценарий. Мы уточним район, бюджет, сроки и важные условия — без случайной ленты предложений.</p>
+            <a class="home-text-link" href="tel:+79381549515">Получить консультацию <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="direction-grid">
-          <article class="direction-card direction-card--apartments">
-            <div class="direction-card__content">
-              <h3>Квартиры</h3>
-              <p>Подбор для жизни, переезда или инвестиционной задачи на городском рынке.</p>
-              <div class="direction-card__tags"><span>Вторичка</span><span>Покупка</span><span>Продажа</span></div>
-              <a href="apartments.html">Перейти в раздел <span aria-hidden="true">→</span></a>
+        <div class="home-start__grid">
+          <article class="home-start-card home-start-card--wide">
+            <img src="assets/images/stock/stock-apartment-interior.jpg" alt="Интерьер современной квартиры" width="1800" height="1532" loading="lazy">
+            <div class="home-start-card__content">
+              <p>Квартиры</p>
+              <h3>Квартира в городе</h3>
+              <span>Подбор квартиры под район, бюджет и сценарий жизни.</span>
+              <a href="apartments.html">Начать подбор <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="direction-card direction-card--newbuilds">
-            <div class="direction-card__content">
-              <h3>Новостройки</h3>
-              <p>Сравнение проектов, сроков, договоров и ипотечного сценария.</p>
-              <div class="direction-card__tags"><span>Первичный рынок</span><span>Ипотека</span></div>
-              <a href="newbuilds.html">Перейти в раздел <span aria-hidden="true">→</span></a>
+          <article class="home-start-card">
+            <img src="assets/images/stock/stock-house-yard.jpg" alt="Частный дом с двором" width="1800" height="1201" loading="lazy">
+            <div class="home-start-card__content">
+              <p>Частный сектор</p>
+              <h3>Дом или участок</h3>
+              <span>Частный сектор, участки, дома для жизни или переезда.</span>
+              <a href="houses.html">Смотреть направление <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="direction-card direction-card--houses">
-            <div class="direction-card__content">
-              <h3>Дома</h3>
-              <p>Переезд из квартиры, частный сектор, состояние дома и коммуникации.</p>
-              <div class="direction-card__tags"><span>Загородная жизнь</span><span>Проверка</span></div>
-              <a href="houses.html">Перейти в раздел <span aria-hidden="true">→</span></a>
+          <article class="home-start-card">
+            <img src="assets/images/stock/stock-newbuild-green.jpg" alt="Современный жилой дом" width="1800" height="1200" loading="lazy">
+            <div class="home-start-card__content">
+              <p>Первичный рынок</p>
+              <h3>Новостройка</h3>
+              <span>Помогаем сравнить планировки, документы и условия покупки.</span>
+              <a href="newbuilds.html">Сравнить варианты <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="direction-card direction-card--lands">
-            <div class="direction-card__content">
-              <h3>Участки</h3>
-              <p>Назначение земли, границы, подъезд, коммуникации и планы строительства.</p>
-              <div class="direction-card__tags"><span>ИЖС</span><span>Документы</span><span>Строительство</span></div>
-              <a href="lands.html">Перейти в раздел <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="direction-card direction-card--commercial">
-            <div class="direction-card__content">
-              <h3>Коммерция</h3>
-              <p>Помещения под задачу бизнеса с учётом локации и рабочего формата.</p>
-              <div class="direction-card__tags"><span>Офисы</span><span>Торговля</span><span>Склады</span></div>
-              <a href="commercial.html">Перейти в раздел <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="direction-card direction-card--rent">
-            <div class="direction-card__content">
-              <h3>Аренда</h3>
-              <p>Отдельный маршрут для жилой и коммерческой недвижимости.</p>
-              <div class="direction-card__tags"><span>Жилая</span><span>Коммерческая</span></div>
-              <a href="rent.html">Перейти в раздел <span aria-hidden="true">→</span></a>
+          <article class="home-start-card home-start-card--wide">
+            <img src="assets/images/stock/stock-office-meeting.jpg" alt="Консультация по продаже недвижимости" width="1800" height="1200" loading="lazy">
+            <div class="home-start-card__content">
+              <p>Задача собственника</p>
+              <h3>Продажа, оценка или коммерция</h3>
+              <span>Разберём объект, документы, позиционирование и первый шаг.</span>
+              <a href="services.html">Обсудить продажу <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section home-local">
-      <div class="container home-page-container home-local__layout">
-        <div class="home-local__copy">
-          <p class="home-section-index">02 / Локальный контекст</p>
-          <h2>Недвижимость конкретного города, а не абстрактный рынок</h2>
-          <p class="home-local__lead">В недвижимости Новочеркасска важно не просто увидеть объект. Важно понимать район, документы, состояние дома, коммуникации, сценарий покупки или продажи и реальные следующие шаги.</p>
-          <a class="home-text-link" href="contacts.html">Обсудить свою ситуацию <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="home-local__topics">
-          <article><span>01</span><h3>Районы и локации</h3><p>Ритм района, доступность, окружение и сценарий жизни.</p></article>
-          <article><span>02</span><h3>Квартиры и вторичный рынок</h3><p>Состояние дома, документы и фактические ограничения.</p></article>
-          <article><span>03</span><h3>Новостройки области</h3><p>Проект, сроки, договор и финансовый сценарий.</p></article>
-          <article><span>04</span><h3>Дома и участки</h3><p>Коммуникации, подъезд, границы и планы использования.</p></article>
-          <article><span>05</span><h3>Коммерческие помещения</h3><p>Локация, назначение и соответствие задаче бизнеса.</p></article>
-          <article><span>06</span><h3>Документы и ограничения</h3><p>То, что влияет на решение ещё до подписания договора.</p></article>
+    <section class="section owner-standard" id="owner" aria-labelledby="owner-standard-title">
+      <div class="container home-page-container owner-standard__layout">
+        <figure class="owner-standard__portrait">
+          <div class="owner-standard__photo">
+            <img src="assets/images/team/zelenkov.png" alt="Зеленьков Александр Михайлович, собственник офиса Домиан Новочеркасск" width="1122" height="1402" loading="lazy">
+          </div>
+          <figcaption>Зеленьков Александр Михайлович · собственник офиса</figcaption>
+        </figure>
+        <div class="owner-standard__copy">
+          <p class="home-section-index">Личный стандарт собственника</p>
+          <h2 id="owner-standard-title">Личный контроль ключевых этапов</h2>
+          <p class="owner-standard__lead">Собственник офиса участвует в важных решениях, чтобы задача клиента не терялась между подбором, проверкой документов и сопровождением.</p>
+          <div class="owner-standard__principles">
+            <article><span>01</span><h3>Разбор задачи до подбора</h3><p>Определяем цель, сроки, бюджет и ограничения.</p></article>
+            <article><span>02</span><h3>Проверка района и документов</h3><p>Смотрим на объект вместе с локацией и условиями сделки.</p></article>
+            <article><span>03</span><h3>Понятный маршрут сделки</h3><p>Заранее объясняем действия, документы и следующий шаг.</p></article>
+          </div>
+          <a class="btn" href="tel:+79381549515">Обсудить задачу</a>
         </div>
       </div>
     </section>
@@ -157,10 +145,10 @@
       <div class="container home-page-container">
         <div class="home-section-heading">
           <div>
-            <p class="home-section-index">03 / Локации</p>
+            <p class="home-section-index">02 / Локальный выбор</p>
             <h2 id="districts-title">Районы и направления Новочеркасска</h2>
           </div>
-          <p>Объект невозможно оценить отдельно от окружения. Локальная карта помогает сопоставить формат жизни, транспорт, тип застройки и задачу покупки.</p>
+          <p>Объект невозможно оценить отдельно от окружения. Сопоставляем формат жизни, транспорт, тип застройки и задачу покупки.</p>
         </div>
         <div class="home-districts__grid">
           <a class="home-district-card home-district-card--center" href="districts/centr-novocherkassk.html"><span>Городская среда</span><h3>Центр и старый город</h3><p>Квартиры, аренда и коммерция рядом с главными городскими осями.</p></a>
@@ -178,7 +166,7 @@
       <div class="container home-page-container">
         <div class="home-section-heading">
           <div>
-            <p class="home-section-index">04 / До сделки</p>
+            <p class="home-section-index">03 / До сделки</p>
             <h2>Что проверяем перед решением</h2>
           </div>
           <p>Практический чек-лист помогает увидеть не только преимущества объекта, но и условия, которые влияют на сделку.</p>
@@ -196,33 +184,12 @@
       </div>
     </section>
 
-    <section class="section home-owner" id="owner">
-      <div class="container home-page-container home-owner__layout">
-        <figure class="home-owner__portrait">
-          <div class="home-owner__photo">
-            <img src="assets/images/team/zelenkov.png" alt="Зеленьков Александр Михайлович, собственник офиса Домиан Новочеркасск">
-          </div>
-          <figcaption>Зеленьков Александр Михайлович · собственник офиса</figcaption>
-        </figure>
-        <div class="home-owner__copy">
-          <p class="home-section-index">Точка ответственности</p>
-          <h2>Собственник держит качество работы</h2>
-          <p class="home-owner__lead">Александр не делает ставку на громкие обещания. Важнее другое: чтобы задача клиента не терялась, документы проверялись, а следующий шаг был понятен.</p>
-          <p class="home-owner__note">Личное участие в ключевых решениях и контроль качества сопровождения.</p>
-          <div class="home-owner__principles">
-            <div><span>01</span><strong>Задача клиента</strong><p>Сначала понимаем цель, сроки и ограничения.</p></div>
-            <div><span>02</span><strong>Понятный маршрут</strong><p>Заранее объясняем документы, действия и следующий шаг.</p></div>
-            <div><span>03</span><strong>Контроль качества</strong><p>Ключевые вопросы не теряются между участниками сделки.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section home-office">
       <div class="container home-page-container home-office__layout">
         <div class="home-office__copy">
-          <p class="home-section-index">05 / Офис</p>
+          <p class="home-section-index">04 / Реальный офис</p>
           <h2>Офис на Народной, 1</h2>
-          <p class="home-office__lead">Домиан Новочеркасск принимает клиентов в офисе по адресу: Народная ул., 1, офис 114, Новочеркасск.</p>
+          <p class="home-office__lead">Домиан Новочеркасск принимает клиентов по адресу: Народная ул., 1, офис 114, Новочеркасск.</p>
           <p>Первичный разбор удобно начинать с короткого звонка; график работы уточняйте по телефону.</p>
           <div class="home-office__actions">
             <a class="btn" href="contacts.html">Контакты офиса</a>
@@ -231,29 +198,14 @@
         </div>
         <div class="home-office__gallery" aria-label="Фото офиса">
           <figure class="home-office__photo home-office__photo--wide">
-            <img src="assets/images/team/XXXL (3).webp" alt="Вход в офис Домиан Новочеркасск на Народной улице">
+            <img src="assets/images/team/XXXL (3).webp" alt="Вход в офис Домиан Новочеркасск на Народной улице" width="1280" height="959" loading="lazy">
           </figure>
           <figure class="home-office__photo">
-            <img src="assets/images/team/XXXL.webp" alt="Дверь офиса Домиан Новочеркасск">
+            <img src="assets/images/team/XXXL.webp" alt="Дверь офиса Домиан Новочеркасск" width="720" height="1280" loading="lazy">
           </figure>
           <figure class="home-office__photo">
-            <img src="assets/images/team/XXXL (2).webp" alt="Рабочая зона офиса Домиан Новочеркасск">
+            <img src="assets/images/team/XXXL (2).webp" alt="Рабочая зона офиса Домиан Новочеркасск" width="960" height="1280" loading="lazy">
           </figure>
-        </div>
-      </div>
-    </section>
-    <section class="section home-standard">
-      <div class="container home-page-container home-standard__layout">
-        <div class="home-standard__intro">
-          <p class="home-section-index">06 / Стандарт работы</p>
-          <h2>Команда работает с клиентом, собственник держит стандарт</h2>
-          <p>Специалисты ведут ежедневные задачи, а в ключевых вопросах сохраняется связь с собственником офиса. Так маршрут остаётся цельным и понятным.</p>
-        </div>
-        <div class="home-standard__flow" aria-label="Зоны работы команды">
-          <div><span>01</span><strong>Подбор</strong><p>Сопоставить задачу, рынок и подходящие варианты.</p></div>
-          <div><span>02</span><strong>Продажа</strong><p>Подготовить объект и выстроить понятный процесс.</p></div>
-          <div><span>03</span><strong>Документы</strong><p>Проверить значимые условия и ограничения.</p></div>
-          <div><span>04</span><strong>Сопровождение</strong><p>Связать этапы сделки в один рабочий маршрут.</p></div>
         </div>
       </div>
     </section>
@@ -262,10 +214,10 @@
       <div class="container home-page-container">
         <div class="home-section-heading home-section-heading--route">
           <div>
-            <p class="home-section-index">07 / Маршрут</p>
+            <p class="home-section-index">05 / Маршрут</p>
             <h2>От первого разговора до сделки</h2>
           </div>
-          <p>Четыре понятных шага без лишней сложности.</p>
+          <p>После первого разговора у клиента остаётся не случайная подборка, а четыре понятных шага.</p>
         </div>
         <ol class="deal-route__steps">
           <li><span>01</span><h3>Заявка или звонок</h3><p>Коротко описываете ситуацию и удобный формат связи.</p></li>
@@ -273,22 +225,6 @@
           <li><span>03</span><h3>Подбор, продажа или проверка</h3><p>Переходим к конкретному сценарию и документам.</p></li>
           <li><span>04</span><h3>Сделка и сопровождение</h3><p>Держим маршрут понятным до согласованного результата.</p></li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section demo-ready">
-      <div class="container home-page-container demo-ready__layout">
-        <div class="demo-ready__copy">
-          <p class="home-section-index">08 / После обращения</p>
-          <h2>Что получает клиент после первого разговора</h2>
-          <p>Не общую подборку и не случайный список предложений, а понятную рамку поиска: задача, локация, значимые проверки и последовательность действий.</p>
-        </div>
-        <div class="demo-ready__roadmap">
-          <div class="is-current"><span>01</span><strong>Разбор задачи</strong><p>Цель, бюджет, сроки и ограничения.</p></div>
-          <div><span>02</span><strong>Локальный выбор</strong><p>Район, тип объекта и повседневный сценарий.</p></div>
-          <div><span>03</span><strong>Карта проверок</strong><p>Документы, состояние, коммуникации и риски.</p></div>
-          <div><span>04</span><strong>Следующий шаг</strong><p>Подбор, продажа, переговоры или сопровождение.</p></div>
-        </div>
       </div>
     </section>
 
