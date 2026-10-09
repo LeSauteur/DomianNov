@@ -12,6 +12,7 @@
   <meta property="og:description" content="Подбор, проверка и сопровождение сделок с недвижимостью в Новочеркасске и Ростовской области.">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/demo-novocherkassk.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
 </head>
 <body>
   <header class="site-header">
@@ -30,8 +31,8 @@
           <h1 id="sales-hero-title">Недвижимость Новочеркасска</h1>
           <p class="sales-hero__lead">Квартиры, дома, участки и коммерческие объекты — с пониманием районов Новочеркасска, проверкой важного и сопровождением сделки.</p>
           <div class="sales-hero__actions">
-            <a class="btn" href="#home-start">Подобрать объект</a>
-            <a class="btn btn--outline-dark" href="services.html">Продать объект</a>
+            <a class="btn" href="#podbor">Подобрать объект</a>
+            <a class="btn btn--outline-dark" href="#podbor" data-quiz-preset="Продать">Продать объект</a>
           </div>
           <div class="sales-hero__service-line" aria-label="Районы и направления работы">
             <span>Центр</span>
@@ -67,6 +68,28 @@
       </div>
     </nav>
 
+    <section class="lead-section" id="podbor" aria-labelledby="podbor-title">
+      <div class="container home-page-container lead-section__layout">
+        <div class="lead-section__copy">
+          <p class="home-section-index">Подбор за минуту</p>
+          <h2 id="podbor-title">Расскажите задачу — офис подготовит ответ</h2>
+          <p class="lead-section__lead">Четыре коротких вопроса вместо долгих объяснений по телефону. Специалист получит вашу задачу целиком и придёт к разговору уже с пониманием района, бюджета и формата.</p>
+          <ul class="lead-section__points">
+            <li><b>1</b><div><strong>Покупка, продажа или аренда</strong>Один квиз для любой задачи с недвижимостью.</div></li>
+            <li><b>2</b><div><strong>С учётом районов Новочеркасска</strong>Центр, Молодёжный, Донской, частный сектор, пригород.</div></li>
+            <li><b>3</b><div><strong>Связь удобным способом</strong>Звонок, WhatsApp или Telegram — как вам удобнее.</div></li>
+          </ul>
+          <div class="lead-section__shortcuts" aria-label="Быстрый старт">
+            <a href="#podbor" data-quiz-preset="Купить">Хочу купить</a>
+            <a href="#podbor" data-quiz-preset="Продать">Хочу продать</a>
+            <a href="#podbor" data-quiz-preset="Снять">Ищу аренду</a>
+            <a href="mortgage.html#calc">Рассчитать ипотеку</a>
+          </div>
+        </div>
+        <div data-lead-quiz="client"></div>
+      </div>
+    </section>
+
     <section class="section home-start" id="home-start" aria-labelledby="home-start-title">
       <div class="container home-page-container">
         <div class="home-start__heading">
@@ -76,7 +99,7 @@
           </div>
           <div>
             <p>Выберите близкий сценарий. Мы уточним район, бюджет, сроки и важные условия — без случайной ленты предложений.</p>
-            <a class="home-text-link" href="tel:+79381549515">Получить консультацию <span aria-hidden="true">→</span></a>
+            <a class="home-text-link" href="#podbor">Получить консультацию <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="home-start__grid">
@@ -239,8 +262,8 @@
         <div class="home-final-cta__actions">
           <a class="home-final-cta__phone" href="tel:+79381549515">+7 938 154-95-15</a>
           <div class="btn-row">
-            <a class="btn" href="contacts.html">Связаться с офисом</a>
-            <a class="btn btn--ghost" href="services.html">Смотреть услуги</a>
+            <a class="btn" href="#podbor">Оставить заявку</a>
+            <a class="btn btn--ghost" href="contacts.html">Контакты офиса</a>
           </div>
         </div>
       </div>
@@ -270,8 +293,9 @@
         <ul>
           <li><a href="construction.html">Строительство домов</a></li>
           <li><a href="services.html">Услуги</a></li>
-          <li><a href="mortgage.html">Ипотека</a></li>
+          <li><a href="mortgage.html">Ипотека и калькулятор</a></li>
           <li><a href="team.html">Команда</a></li>
+          <li><a href="career.html">Работа агентом</a></li>
           <li><a href="contacts.html">Контакты</a></li>
         </ul>
       </div>
@@ -288,5 +312,6 @@
     </div>
   </footer>
   <script src="assets/js/site-nav.js"></script>
+  <script src="assets/js/tools.js"></script>
 </body>
 </html>
