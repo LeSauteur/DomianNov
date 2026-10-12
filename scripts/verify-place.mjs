@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 const dirs=['.','districts','objects'];
 const pages=dirs.flatMap(dir=>fs.readdirSync(dir).filter(f=>f.endsWith('.html')).map(f=>dir==='.'?f:dir+'/'+f));
 let links=0;
+const styles=new Set();
 const errors=[];
 for(const file of pages){
   const html=fs.readFileSync(file,'utf8');
@@ -23,11 +24,23 @@ for(const file of pages){
     const dest=decodeURIComponent(u.pathname).replace(/^\//,'');
     const resolved=dest.endsWith('/')?dest+'index.html':dest||'index.html';
     if(!fs.existsSync(resolved)){errors.push(`${file}: missing ${link}`);continue;}
+    if(resolved.endsWith('.css'))styles.add(resolved);
     if(u.hash&&resolved.endsWith('.html')){
       const target=fs.readFileSync(resolved,'utf8');
       const id=decodeURIComponent(u.hash.slice(1));
       if(!target.includes(`id="${id}"`))errors.push(`${file}: missing anchor ${link}`);
     }
+  }
+}
+let cssAssets=0;
+for(const file of styles){
+  const css=fs.readFileSync(file,'utf8');
+  for(const match of css.matchAll(/url\(\s*(['"]?)(.*?)\1\s*\)/g)){
+    const asset=match[2];
+    if(/^(?:https?:|data:|#)/.test(asset))continue;
+    cssAssets++;
+    const dest=path.resolve(path.dirname(file),decodeURIComponent(asset));
+    if(!fs.existsSync(dest))errors.push(`${file}: missing CSS resource ${asset}`);
   }
 }
 const sandbox={window:{}};vm.runInNewContext(fs.readFileSync('assets/js/place-data.js','utf8'),sandbox);
@@ -42,4 +55,4 @@ for(const p of data.properties){
   assert.match(html,/name="robots" content="noindex,follow"/,'unconfirmed source page must be noindex');
   assert(!sitemap.includes(`objects/${p.id}.html`),'unconfirmed source excluded from sitemap');
 }
-if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log(`PASS: ${pages.length} pages; ${links} local links/assets/anchors; ${data.properties.length} source records; indexing safeguards.`);
+if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log(`PASS: ${pages.length} pages; ${links} local links/assets/anchors; ${cssAssets} CSS resources; ${data.properties.length} source records; indexing safeguards.`);

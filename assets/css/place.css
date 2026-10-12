@@ -11,5 +11,24 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 .district-compare-controls .p-button:hover{background:var(--pale);color:var(--ink)}
 .hero-copy,.hero-photo{min-width:0}
+.place-legacy .mcalc__pay--prompt{font-size:clamp(22px,3vw,32px)}
+.place-legacy .mcalc__inputs input[aria-invalid=true]{outline:2px solid #9a442e;outline-offset:2px}
+.place-legacy .mcalc{background:var(--white);border:1px solid var(--line);border-radius:0;box-shadow:none}
+.place-legacy .mcalc__row label,.place-legacy .mcalc__input input,.place-legacy .mcalc__chips button{color:var(--ink)}
+.place-legacy .mcalc__row label small,.place-legacy .mcalc__input span{color:var(--muted)}
+.place-legacy .mcalc__input{background:var(--paper);border-color:var(--line);border-radius:0}
+.place-legacy .mcalc__chips button{border-color:var(--line)}
+.place-legacy .mcalc__result{background:var(--pale)}
+.place-legacy .mcalc input[type=range]{background:linear-gradient(90deg,var(--orange) var(--fill),var(--line) var(--fill))}
+.place-legacy .hero-cover__content h1,.place-legacy .prefooter-cover__content h2,.place-legacy .district-hero h1{color:var(--white)}
+.place-legacy .hero-cover .eyebrow,.place-legacy .prefooter-cover .eyebrow,.place-legacy .district-hero .eyebrow{color:#d3dfcd}
+.place-legacy .hero-cover__content{padding:68px 0 55px}
+.place-legacy .hero-cover .lead,.place-legacy .prefooter-cover .lead{color:#e5ebdf;font-size:15px;max-width:630px}
+.place-legacy .hero-cover .btn--ghost,.place-legacy .prefooter-cover .btn--ghost,.place-legacy .district-hero .btn--ghost{background:transparent;color:var(--white);border-color:#b7c5ae}
+.place-legacy .section--light,.place-legacy .section--warm,.place-legacy .district-section--light{background:var(--pale)}
+.place-legacy .service-card,.place-legacy .faq-card,.place-legacy .step-card,.place-legacy .progress-card{background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:0;box-shadow:none}
+.place-legacy .service-card a,.place-legacy .service-card span{color:var(--orange)}
+.place-legacy .accordion-item summary{color:var(--ink)}
+@media(max-width:640px){.place-legacy .hero-cover__content{padding:45px 0}.place-legacy .hero-cover .lead,.place-legacy .prefooter-cover .lead{font-size:13px}.place-legacy .hero-cover h1{font-size:43px}.place-legacy .district-hero__content{padding:60px 0 45px}}
 @media(max-width:360px){.hero h1{font-size:48px;letter-spacing:-1.5px}.hero-actions{gap:14px}.hero-actions .p-button{padding:12px 13px;gap:12px}.hero-actions .text-link{font-size:9px}.compare-bar{gap:7px;padding:10px}.compare-bar a{font-size:9px;padding:7px}.page-intro h1{font-size:41px}.contact-strip__phone{font-size:26px}}
 @media(max-width:640px){.hero-photo{height:220px}.search-band .field:first-child,.search-band .p-button{grid-column:auto}.search-band .field>span{font-size:8px;letter-spacing:1px}.search-band .p-button{padding:10px 12px;gap:8px;font-size:10px;height:41px;min-height:41px;margin:0}.hero-photo .photo-caption b{font-size:23px;max-width:180px}}
