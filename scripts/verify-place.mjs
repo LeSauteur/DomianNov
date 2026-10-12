@@ -1,0 +1,45 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const dirs=['.','districts','objects'];
+const pages=dirs.flatMap(dir=>fs.readdirSync(dir).filter(f=>f.endsWith('.html')).map(f=>dir==='.'?f:dir+'/'+f));
+let links=0;
+const errors=[];
+for(const file of pages){
+  const html=fs.readFileSync(file,'utf8');
+  assert.match(html,/<html lang="ru">/,file+': language');
+  assert.match(html,/<title>[^<]+<\/title>/,file+': title');
+  if(file!=='presentation.html'){
+    assert.equal((html.match(/<header /g)||[]).length,1,file+': one header');
+    assert.equal((html.match(/<h1[ >]/g)||[]).length,1,file+': one h1');
+    assert.match(html,/<main id="main-content"/,file+': skip target');
+  }
+  for(const m of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+    const link=m[1].replaceAll('&amp;','&');
+    if(/^(?:https?:|tel:|mailto:|data:)/.test(link))continue;
+    links++;
+    const u=new URL(link,'https://local.test/'+file);
+    const dest=decodeURIComponent(u.pathname).replace(/^\//,'');
+    const resolved=dest.endsWith('/')?dest+'index.html':dest||'index.html';
+    if(!fs.existsSync(resolved)){errors.push(`${file}: missing ${link}`);continue;}
+    if(u.hash&&resolved.endsWith('.html')){
+      const target=fs.readFileSync(resolved,'utf8');
+      const id=decodeURIComponent(u.hash.slice(1));
+      if(!target.includes(`id="${id}"`))errors.push(`${file}: missing anchor ${link}`);
+    }
+  }
+}
+const sandbox={window:{}};vm.runInNewContext(fs.readFileSync('assets/js/place-data.js','utf8'),sandbox);
+const data=sandbox.window.PLACE_DATA;
+assert.equal(new Set(data.properties.map(p=>p.id)).size,data.properties.length,'unique listing IDs');
+const sitemap=fs.readFileSync('sitemap.xml','utf8');
+for(const p of data.properties){
+  assert(p.price>0&&Number.isFinite(p.price),'source price is numeric');
+  assert.match(p.source,/^https:\/\/(?:www\.|rostov\.)?cian\.ru\//,'source URL');
+  assert.equal(p.verified,false,'source imports require owner confirmation');
+  const html=fs.readFileSync(`objects/${p.id}.html`,'utf8');
+  assert.match(html,/name="robots" content="noindex,follow"/,'unconfirmed source page must be noindex');
+  assert(!sitemap.includes(`objects/${p.id}.html`),'unconfirmed source excluded from sitemap');
+}
+if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log(`PASS: ${pages.length} pages; ${links} local links/assets/anchors; ${data.properties.length} source records; indexing safeguards.`);

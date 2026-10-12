@@ -1,12 +1,11 @@
 /*
  * Домиан Новочеркасск — рабочие инструменты сайта (октябрь 2026).
- * Квиз-заявка, анкета кандидата, ипотечный калькулятор, фильтр демо-каталога.
+ * Ипотечный калькулятор и совместимость оставшихся форм.
  *
  * LEAD_ENDPOINT: после запуска сюда подставляется адрес приёма заявок
  * (например, небольшой серверный обработчик, который пересылает заявку
- * в Telegram офиса). Пока адрес пустой, сайт работает в демо-режиме:
- * заявка никуда не уходит, а посетитель видит, как она выглядела бы
- * в Telegram, и может сразу позвонить в офис.
+ * в офис). Пока адрес пустой, вместо форм выводится прямой контакт.
+ * Сайт не имитирует отправку заявки и не обещает обратный звонок.
  */
 (() => {
   const LEAD_ENDPOINT = "";
@@ -213,7 +212,7 @@
             ${["Звонок", "WhatsApp", "Telegram"].map((c, i) => `
               <label class="lq__chip"><input type="radio" name="channel" value="${c}" ${i === 0 ? "checked" : ""}><span>${c}</span></label>`).join("")}
           </div>
-          <label class="lq__consent"><input type="checkbox" name="consent" required checked><span>Согласен на обработку персональных данных по <a href="${esc(privacyHref)}" target="_blank" rel="noopener">политике конфиденциальности</a></span></label>
+          <label class="lq__consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных по <a href="${esc(privacyHref)}" target="_blank" rel="noopener">политике конфиденциальности</a></span></label>
           <p class="lq__error" hidden></p>
           <div class="lq__submit-row">
             <button type="button" class="lq__back">← Назад</button>
@@ -251,13 +250,18 @@
           submit.disabled = true;
           submit.textContent = "Отправляем…";
           try {
-            await fetch(LEAD_ENDPOINT, {
+            const response = await fetch(LEAD_ENDPOINT, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ source: flow.source, page: location.pathname, ...state.answers })
             });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
           } catch (e) {
-            /* при ошибке посетитель всё равно видит телефон офиса */
+            error.textContent = `Не удалось отправить. Попробуйте ещё раз или позвоните: ${OFFICE_PHONE}.`;
+            error.hidden = false;
+            submit.disabled = false;
+            submit.textContent = root.dataset.leadQuiz === "career" ? "Отправить анкету" : "Получить ответ";
+            return;
           }
         }
         state.step += 1;
@@ -420,7 +424,10 @@
   /* ---------------- Запуск ---------------- */
 
   document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-lead-quiz]").forEach(initQuiz);
+    document.querySelectorAll("[data-lead-quiz]").forEach((root) => {
+      if (!DEMO) { initQuiz(root); return; }
+      root.innerHTML = `<div class="direct-intake"><p>Обсудите задачу с офисом напрямую. Приём заявок через сайт пока не подключён.</p><a href="${OFFICE_TEL}">${OFFICE_PHONE} ↗</a></div>`;
+    });
     document.querySelectorAll("[data-mortgage]").forEach(initMortgage);
     document.querySelectorAll("[data-catalog]").forEach(initCatalog);
 
