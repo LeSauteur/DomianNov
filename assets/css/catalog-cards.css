@@ -1,0 +1,83 @@
+/* Photo cards adapted from Malinovskogo; colors inherit the Novocherkassk palette. */
+.format-tabs{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 28px}
+.format-tabs button{border:1px solid #50606a;color:#c2cbd0;background:transparent;min-height:42px;padding:10px 18px;border-radius:3px;font-size:11px;transition:background .2s,border-color .2s}
+.format-tabs button:hover{border-color:var(--brass);color:#eee6d7}
+.format-tabs button[aria-pressed=true]{background:var(--brass);border-color:var(--brass);color:#111c22}
+.format-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;align-items:stretch}
+.format-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #42525c;border-radius:15px;background:linear-gradient(145deg,#1d2b33,#17232a);box-shadow:0 12px 34px #0002;transition:transform .22s,border-color .22s,box-shadow .22s}
+.format-card__media{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#263740}
+.format-card__media img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:saturate(.83)}
+.format-card__media:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#08111718,transparent 60%,#08111730)}
+.format-card__category{position:absolute;z-index:1;top:16px;left:16px;padding:7px 12px;border:1px solid #ffffff4d;border-radius:30px;color:#fff;background:#111a20b5;backdrop-filter:blur(8px);font-size:8px;font-weight:650;letter-spacing:1.2px;text-transform:uppercase}
+.format-card__open{position:absolute;right:15px;bottom:15px;z-index:1;width:35px;height:35px;border-radius:50%;background:#10191ed9;border:1px solid #ffffff70;display:grid;place-items:center;font-size:20px;color:#eee4d4}
+.format-card__body{display:flex;flex:1;flex-direction:column;padding:25px}
+.format-card__location{font-size:8px;text-transform:uppercase;letter-spacing:1.2px;color:#c2a780;margin-bottom:12px}
+.place .format-card h3{font-size:34px;line-height:1.06;letter-spacing:-.45px;font-weight:500;min-height:2.15em;margin:0 0 14px;color:var(--light)}
+.format-card h3 a:hover{color:#e4c99f}
+.format-card p{font-size:12px;line-height:1.85;color:#bac5cb;margin:0 0 22px!important}
+.format-card__traits{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:auto 0 23px}
+.format-card__traits li{padding:6px 10px;border-radius:6px;background:#293a44;color:#c3cfd5;font-size:9px;line-height:1.5}
+.format-card__link{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid #53636e66;padding-top:15px;color:#e1c39b;font-size:11px;min-height:43px}
+.format-section__foot{display:flex;justify-content:space-between;gap:30px;align-items:start;margin-top:22px}
+.format-section__foot>p{font-size:9px;color:#a6b3bb;max-width:640px;line-height:1.9}
+.format-section__foot .text-link{font-size:10px;white-space:nowrap;gap:18px}
+.format-hero{padding:35px 0 55px;background:radial-gradient(ellipse at 70% 50%,#9e7b4a10,transparent 65%);border-bottom:1px solid #c6a5782b}
+.format-hero__grid{display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:center}
+.format-hero .breadcrumbs{margin:0 0 27px;flex-wrap:wrap}
+.format-hero .eyebrow{margin-bottom:19px}
+.place .format-hero h1{font-size:clamp(52px,5vw,80px);line-height:1.01;letter-spacing:-1.2px;margin:0 0 23px}
+.format-hero p{color:#b8c3c9;max-width:470px;font-size:13px;line-height:1.9;margin-bottom:26px}
+.format-hero .brief-buttons{align-items:center;gap:25px;flex-wrap:wrap}
+.format-hero figure{position:relative;overflow:hidden;margin:0;border:1px solid #c6a57866;border-radius:60px 8px 60px 8px;height:380px}
+.format-hero figure img{height:100%;width:100%;object-fit:cover;filter:saturate(.75)}
+.format-hero figcaption{position:absolute;bottom:20px;left:20px;right:20px;padding:9px 15px;background:#10191edb;border:1px solid #e7d1ac50;border-radius:2px;font-size:8px;text-transform:uppercase;letter-spacing:1.2px;color:#e2d4bd}
+.source-heading{padding:15px 0 30px}
+.source-heading h2{margin-top:17px}
+.format-check-section{background:#17262f;border-block:1px solid #c6a57826}
+.format-check{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.format-check h2{margin-top:20px}
+.format-check ol{padding:0;list-style:none;margin:0}
+.format-check li{display:flex;gap:23px;padding:22px 0;border-top:1px solid #52636d}
+.format-check li>span{font-size:10px;color:var(--brass);padding-top:6px}
+.place .format-check h3{font-size:30px;margin-bottom:8px}
+.format-check li p{font-size:12px;line-height:1.8;color:#b9c5cc}
+.format-detail-hero{padding:35px 0 60px;border-bottom:1px solid var(--line)}
+.format-detail-hero .breadcrumbs{margin-bottom:30px;flex-wrap:wrap}
+.format-detail-hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.format-detail-hero .eyebrow{margin-bottom:20px}
+.place .format-detail-hero h1{font-size:clamp(49px,5vw,76px);line-height:1.03;letter-spacing:-1px;margin-bottom:24px}
+.format-detail-hero p{font-size:14px;color:#c1cbd1;line-height:1.85;margin-bottom:25px}
+.format-detail-hero .format-card__traits{margin:0 0 30px}
+.format-detail-hero figure{margin:0;position:relative;height:450px;overflow:hidden;border-radius:15px;border:1px solid #c6a57866}
+.format-detail-hero figure img{width:100%;height:100%;object-fit:cover}
+.format-detail-hero figcaption{position:absolute;left:20px;bottom:20px;border-radius:20px;padding:8px 12px;background:#10191edd;color:#e4d6c0;font-size:9px;border:1px solid #c6a57866}
+.format-detail-layout{display:grid;grid-template-columns:1.35fr 1fr;gap:80px;align-items:start}
+.format-detail-layout h2{margin:20px 0}
+.format-detail-lead{color:#b3c0c7;font-size:13px;line-height:1.9}
+.format-check-list{list-style:none;padding:0;margin:30px 0 0}
+.format-check-list li{display:flex;gap:20px;padding:18px 0;border-top:1px solid #4b5e6a;font-size:12px;color:#c9d3d8}
+.format-check-list li span{color:var(--brass);font-size:9px;padding-top:3px}
+.format-detail-aside{padding:35px;border:1px solid #c6a57866;border-radius:12px;background:#1d2d37;position:sticky;top:115px}
+.place .format-detail-aside h3{font-size:43px;margin:20px 0}
+.format-detail-aside p{font-size:12px;color:#b8c7d0;line-height:1.9;margin-bottom:24px}
+.format-detail-aside .p-button{width:100%;margin-bottom:20px}
+.format-detail-aside .text-link{font-size:13px}
+.format-detail-aside .format-detail-note{font-size:10px;margin:24px 0 0;color:#b2c0c8}
+.format-related{padding-top:0}
+.administrator-section{padding:10px 0 75px}
+.administrator-card{display:grid;grid-template-columns:155px 1fr auto;gap:32px;align-items:center;padding:28px;border:1px solid #c6a57866;border-radius:12px;background:linear-gradient(110deg,#20303a,#18252d);overflow:hidden}
+.administrator-card>img{width:155px;height:165px;object-fit:cover;object-position:50% 30%;border-radius:8px}
+.administrator-card h2{font:43px/1.05 var(--serif);letter-spacing:-.5px;color:#f0e7d8;margin:12px 0 6px}
+.administrator-card__role{font-size:11px;color:var(--brass)}
+.administrator-card p{font-size:12px;color:#bbc7ce;line-height:1.8;margin-top:12px;max-width:370px}
+.administrator-card__contact{display:flex;flex-direction:column;gap:17px;align-items:start}
+.administrator-card__phone{font-size:22px;color:#e5c99f;white-space:nowrap}
+.administrator-card__contact .p-button{font-size:11px}
+.place-legacy .administrator-section{padding:45px 0;background:#14222b}
+.place-legacy .administrator-card p{color:#bbc7ce}
+@media(hover:hover){.format-card:hover{border-color:#c6a578aa;box-shadow:0 20px 45px #0003;transform:translateY(-5px)}.format-card:hover img{transform:scale(1.035)}}
+@media(max-width:1100px){.format-card__body{padding:22px}.place .format-card h3{font-size:31px}.format-card p{font-size:11px}.format-grid{gap:18px}.format-hero__grid,.format-detail-hero__grid,.format-detail-layout,.format-check{gap:40px}.format-hero figure{height:360px}.administrator-card{grid-template-columns:135px 1fr auto;gap:25px}.administrator-card>img{width:135px;height:160px}.administrator-card__phone{font-size:19px}}
+@media(max-width:900px){.format-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.format-card__media{aspect-ratio:4/3}.format-tabs{gap:8px}.format-tabs button{font-size:10px;padding:9px 14px}.format-section__foot{display:block}.format-section__foot .text-link{margin-top:14px}.format-hero__grid{gap:28px}.format-hero figure{height:350px}.place .format-hero h1{font-size:54px}.format-hero p{font-size:12px}.format-hero .brief-buttons{gap:20px}.format-detail-hero__grid{gap:30px}.format-detail-hero figure{height:400px}.place .format-detail-hero h1{font-size:52px}.format-detail-layout{gap:35px}.format-detail-aside{padding:27px}.place .format-detail-aside h3{font-size:36px}.administrator-card{grid-template-columns:120px 1fr;gap:18px 26px}.administrator-card>img{width:120px;height:165px;grid-row:1/3}.administrator-card__contact{grid-column:2;gap:13px}.administrator-card h2{font-size:38px}.administrator-card p{font-size:11px}.administrator-card__contact .p-button{font-size:10px;min-height:44px}}
+@media(max-width:640px){.format-grid{grid-template-columns:1fr;gap:23px}.format-tabs{gap:8px;margin-bottom:23px}.format-tabs button{font-size:9px;padding:9px 12px;min-height:40px}.format-card{border-radius:13px}.format-card__media{aspect-ratio:4/3}.format-card__body{padding:24px}.place .format-card h3{font-size:35px;min-height:0;margin-bottom:13px}.format-card p{font-size:12px;line-height:1.8}.format-card__location{font-size:8px}.format-card__category{font-size:8px;top:14px;left:14px}.format-card__traits li{font-size:9px}.format-card__link{font-size:11px;min-height:45px}.format-section__foot>p{font-size:9px}.format-section__foot .text-link{font-size:10px}.format-hero{padding:25px 0 35px}.format-hero__grid{grid-template-columns:1fr;gap:28px}.format-hero .breadcrumbs{margin-bottom:23px;font-size:9px}.format-hero .eyebrow{font-size:7px}.place .format-hero h1{font-size:49px;line-height:1.02;margin-bottom:20px}.format-hero p{font-size:12px;margin-bottom:24px}.format-hero .brief-buttons{gap:20px}.format-hero .p-button{font-size:10px}.format-hero figure{height:235px;border-radius:40px 6px 40px 6px}.format-hero figcaption{bottom:17px;left:17px;right:17px;font-size:7px}.format-check{grid-template-columns:1fr;gap:25px}.format-check li{gap:17px}.place .format-check h3{font-size:29px}.format-check li p{font-size:11px}.source-heading{padding:0 0 25px}.format-detail-hero{padding:25px 0 40px}.format-detail-hero .breadcrumbs{font-size:9px;margin-bottom:25px}.format-detail-hero__grid{grid-template-columns:1fr;gap:30px}.place .format-detail-hero h1{font-size:49px;margin-bottom:22px}.format-detail-hero p{font-size:12px}.format-detail-hero figure{height:280px}.format-detail-hero figcaption{font-size:8px;left:15px;bottom:15px}.format-detail-layout{grid-template-columns:1fr;gap:30px}.format-detail-lead{font-size:12px}.format-check-list li{font-size:11px;line-height:1.8}.format-detail-aside{position:static;padding:27px}.format-related{padding-top:0}.administrator-section{padding:5px 0 50px}.administrator-card{grid-template-columns:90px 1fr;padding:21px;gap:17px 20px;border-radius:10px}.administrator-card>img{width:90px;height:116px;grid-row:auto}.administrator-card .eyebrow{font-size:6px;letter-spacing:1px}.administrator-card h2{font-size:33px;margin:9px 0 4px}.administrator-card__role{font-size:10px}.administrator-card p{font-size:10px;margin-top:8px;line-height:1.7}.administrator-card__contact{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.administrator-card__phone{font-size:19px}.administrator-card__contact .p-button{font-size:10px;padding:12px 15px;gap:18px;width:100%}.place-legacy .administrator-section{padding:35px 0}}
+@media(max-width:360px){.format-card__body{padding:21px}.place .format-card h3{font-size:31px}.format-tabs button{font-size:8px;padding:9px 11px}.place .format-hero h1,.place .format-detail-hero h1{font-size:43px}.format-hero .brief-buttons{gap:16px}.format-hero .text-link{font-size:9px}.administrator-card{padding:18px;gap:17px}.administrator-card h2{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.format-card,.format-card img{transition:none}.format-card:hover,.format-card:hover img{transform:none}}
