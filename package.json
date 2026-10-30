@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node scripts/build-place.mjs",
     "dev": "node scripts/serve.mjs",
-    "qa": "node --check assets/js/place.js && node --check assets/js/place-data.js && node --check assets/js/tools.js && node scripts/verify-place.mjs"
+    "qa": "node --check scripts/build-place.mjs && node --check scripts/home-showcase.mjs && node --check scripts/catalog-showcase.mjs && node --check scripts/office-team.mjs && node --check assets/js/place.js && node --check assets/js/place-data.js && node --check assets/js/tools.js && node scripts/verify-place.mjs",
+    "audit:published": "node scripts/audit-published.mjs"
   }
 }

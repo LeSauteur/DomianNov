@@ -43,7 +43,7 @@
     }
     document.addEventListener('click',e=>{const save=e.target.closest('[data-save]');if(save&&ids.has(save.dataset.save))toggleSaved(save.dataset.save);const compare=e.target.closest('[data-compare]');if(compare&&ids.has(compare.dataset.compare))toggleCompare(compare.dataset.compare);if(e.target.closest('[data-clear-compare]')){state.compare=[];persist('compare');updateStateUI();}});
     updateStateUI();
-    setupCatalog();setupDistricts();setupBudget();setupSeller();
+    setupCatalog();setupDistricts();setupBudget();setupSeller();setupBuyerBrief();setupShowcases();
     if($('[data-compare-page]'))renderCompare();
   });
   window.addEventListener('storage',e=>{if(!['novo:saved','novo:compare'].includes(e.key))return;const key=e.key.split(':')[1];try{const a=JSON.parse(e.newValue||'[]');state[key]=Array.isArray(a)?[...new Set(a.filter(id=>ids.has(id)))].slice(0,key==='compare'?3:100):[];}catch{state[key]=[];}updateStateUI();catalogApply?.();if($('[data-compare-page]'))renderCompare();});
@@ -112,6 +112,41 @@
     form.addEventListener('submit',e=>e.preventDefault());form.addEventListener('input',calculate);calculate();
     const manual=document.createElement('pre');manual.className='brief-text';manual.hidden=true;manual.style.color='var(--ink)';$('.budget-result',root).appendChild(manual);
     $('[data-copy-budget]',root).addEventListener('click',()=>{if(summary)copy(summary,manual);});
+  }
+  function setupShowcases(){
+    $$('[data-vitrine]').forEach(root=>{
+      const buttons=$$('[data-showcase-filter]',root),cards=$$('[data-showcase-card]',root),link=$('[data-format-category]',root);
+      if(!buttons.length)return;
+      const select=button=>{
+        const type=button.dataset.showcaseFilter;
+        buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+        cards.forEach(c=>{c.hidden=type?c.dataset.showcaseType!==type:c.dataset.featured!=='true';});
+        link.href=button.dataset.showcaseUrl;
+        link.firstChild.textContent=type?'Все направления раздела ':'Обсудить мою задачу ';
+      };
+      buttons.forEach(b=>b.addEventListener('click',()=>select(b)));
+      const param=new URLSearchParams(location.search).get('type');
+      const initial=param?buttons.find(b=>b.dataset.showcaseFilter===param):null;
+      if(initial)select(initial);
+    });
+  }
+  function setupBuyerBrief(){
+    const root=$('[data-buyer-brief]');if(!root)return;
+    const form=$('form',root),result=$('.selection-result',root),output=$('[data-buyer-text]',root);
+    const requestedType=new URLSearchParams(location.search).get('type');
+    if([...form.elements.type.options].some(o=>o.value===requestedType))form.elements.type.value=requestedType;
+    form.addEventListener('submit',e=>{
+      e.preventDefault();if(!form.reportValidity())return;
+      const fields=form.elements,query=new URLSearchParams({type:fields.type.value});
+      if(fields.district.value)query.set('district',fields.district.value);
+      if(fields.max.value)query.set('max',fields.max.value);
+      const label=name=>fields[name].selectedOptions[0].textContent;
+      output.textContent=['Хочу обсудить покупку недвижимости в Новочеркасске.','Что ищу: '+label('type')+'.','Район: '+label('district')+'.','Бюджет: '+label('max')+'.','Сроки: '+label('time')+'.','Прошу уточнить актуальные варианты, условия покупки и порядок просмотра.'].join('\n');
+      $('[data-buyer-catalog]',root).href=url('catalog.html')+'?'+query;
+      form.hidden=true;result.hidden=false;result.focus();
+    });
+    $('[data-edit-buyer]',root).addEventListener('click',()=>{result.hidden=true;form.hidden=false;form.elements.type.focus();});
+    $('[data-copy-buyer]',root).addEventListener('click',()=>copy(output.textContent,output));
   }
   function setupSeller(){const root=$('[data-seller-brief]');if(!root)return;const form=$('form',root),output=$('.seller-brief-output',root),text=$('[data-brief-text]',root);form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const f=form.elements,d=data.districts.find(d=>d.id===f.district.value);text.textContent=`Хочу обсудить продажу недвижимости.\nТип: ${f.type.value}\nНаправление: ${d?.name||'уточним в разговоре'}\nПлощадь: ${f.area.value?f.area.value+(f.type.value==='Участок'?' соток':' м²'):'уточним в разговоре'}\nСроки: ${f.time.value}\nНужно обсудить: документы, подготовку к продаже, условия работы и следующий шаг.`;output.hidden=false;});$('[data-copy-brief]',root).addEventListener('click',()=>copy(text.textContent,text));}
 })();

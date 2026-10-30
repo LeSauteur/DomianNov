@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#10251d"/>
-  <circle cx="32" cy="32" r="25" fill="none" stroke="#b58a55" stroke-width="1.5"/>
-  <circle cx="32" cy="7" r="2.5" fill="#d4b887"/>
-  <text x="32" y="40" fill="#f5ead8" font-family="Georgia,serif" font-size="24" font-weight="700" text-anchor="middle">НЧ</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#10191e"/><path d="M10 10h44v44H10z" fill="none" stroke="#c6a578"/><path d="m20 45 12-27 12 27M25 34h14M17 45h30" fill="none" stroke="#dfc299" stroke-width="2"/><path d="M51 43h6v6h-6z" fill="#10191e" stroke="#c6a578"/></svg>

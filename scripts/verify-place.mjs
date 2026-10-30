@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
+import { showcases } from './catalog-showcase.mjs';
 const dirs=['.','districts','objects'];
 const pages=dirs.flatMap(dir=>fs.readdirSync(dir).filter(f=>f.endsWith('.html')).map(f=>dir==='.'?f:dir+'/'+f));
 let links=0;
@@ -47,6 +48,17 @@ const sandbox={window:{}};vm.runInNewContext(fs.readFileSync('assets/js/place-da
 const data=sandbox.window.PLACE_DATA;
 assert.equal(new Set(data.properties.map(p=>p.id)).size,data.properties.length,'unique listing IDs');
 const sitemap=fs.readFileSync('sitemap.xml','utf8');
+for(const format of showcases){
+  const file=`objects/format-${format.id}.html`;
+  assert.match(fs.readFileSync(file,'utf8'),/name="robots" content="noindex,follow"/,file+': illustrative format must not be indexed as a listing');
+  assert(!sitemap.includes(file),file+': illustrative format excluded from sitemap');
+}
+for(const file of ['index.html','contacts.html']){
+  const html=fs.readFileSync(file,'utf8');
+  assert.equal((html.match(/id="administrator-title"/g)||[]).length,1,file+': exactly one administrator section');
+  assert.match(html,/href="tel:\+79613213989"/,file+': administrator telephone');
+  assert.match(html,/src="assets\/images\/team\/anastasia\.png"/,file+': supplied administrator portrait');
+}
 for(const p of data.properties){
   assert(p.price>0&&Number.isFinite(p.price),'source price is numeric');
   assert.match(p.source,/^https:\/\/(?:www\.|rostov\.)?cian\.ru\//,'source URL');
